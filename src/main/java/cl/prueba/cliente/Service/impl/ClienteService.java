@@ -1,58 +1,72 @@
 package cl.prueba.cliente.Service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cl.prueba.cliente.dto.ClienteDTO;
+import cl.prueba.cliente.Entity.ClienteEntity;
 import cl.prueba.cliente.Repository.IClienteRepository;
 import cl.prueba.cliente.Service.IClienteService;
-import cl.prueba.cliente.dto.ClienteDTO;
 
 @Service
-public class ClienteService implements IClienteService{
+public class ClienteService implements IClienteService {
+
     @Autowired
-    IClienteRepository west;
-    
+    private IClienteRepository repository;
 
-
-
-    @Override
-    public ClienteDTO insertarCliente(ClienteDTO cliente) {
-        return west.save(cliente);
+    private ClienteDTO entityToDTO(ClienteEntity entity) {
+        return new ClienteDTO(
+            entity.getIdCliente(),
+            entity.getNombre(),
+            entity.getApellido(),
+            entity.getRut()
+        );
     }
 
+    private ClienteEntity dtoToEntity(ClienteDTO dto) {
+        return new ClienteEntity(
+            dto.getIdCliente(),
+            dto.getNombre(),
+            dto.getApellido(),
+            dto.getRut()
+        );
+    }
 
-
+    @Override
+    public ClienteDTO insertarCliente(ClienteDTO dto) {
+        ClienteEntity entity = dtoToEntity(dto);
+        ClienteEntity saved = repository.save(entity);
+        return entityToDTO(saved);
+    }
 
     @Override
     public List<ClienteDTO> getTodosClientes() {
-        return(List<ClienteDTO>)west.findAll();
+        List<ClienteEntity> entities = (List<ClienteEntity>) repository.findAll();
+        return entities.stream().map(this::entityToDTO).collect(Collectors.toList());
     }
-
-
-
 
     @Override
     public ClienteDTO getClienteById(Long id) {
-        return west.findById(id.intValue()).get();
+        ClienteEntity entity = repository.findById(id.intValue()).orElse(null);
+        return entity != null ? entityToDTO(entity) : null;
     }
-
-
-
 
     @Override
-    public ClienteDTO actualizarCliente(ClienteDTO cliente) {
-        return west.save(cliente);
+    public ClienteDTO actualizarCliente(ClienteDTO dto) {
+        ClienteEntity entity = dtoToEntity(dto);
+        ClienteEntity updated = repository.save(entity);
+        return entityToDTO(updated);
     }
-
-
-
 
     @Override
     public boolean eliminarCliente(Integer id) {
-        west.deleteById(id);
-        return true;
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return true;
+        }
+        return false;
     }
-
 }

@@ -6,8 +6,9 @@ package cl.prueba.empleado.Repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import cl.prueba.empleado.dto.EmpleadoDTO;
+import cl.prueba.empleado.Entity.EmpleadoEntity;
+//import cl.prueba.empleado.dto.EmpleadoDTO;
 
-public interface IEmpleadoRepository extends CrudRepository<EmpleadoDTO,Integer>{
+public interface IEmpleadoRepository extends CrudRepository<EmpleadoEntity,Integer>{
 
 }

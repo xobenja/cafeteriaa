@@ -1,39 +1,55 @@
 package cl.prueba.pedido.Service.impl;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cl.prueba.pedido.Entity.PedidoEntity;
 import cl.prueba.pedido.Repository.IPedidoRepository;
 import cl.prueba.pedido.Service.IPedidoService;
 import cl.prueba.pedido.dto.PedidoDTO;
 
 @Service
-public class PedidoService implements IPedidoService{
+public class PedidoService implements IPedidoService {
 
     @Autowired
     IPedidoRepository xd;
 
+    private PedidoDTO toDTO(PedidoEntity entity) {
+        return new PedidoDTO(entity.getIdPedidos());
+    }
+
+    private PedidoEntity toEntity(PedidoDTO dto) {
+        return new PedidoEntity(dto.getIdPedidos());
+    }
 
     @Override
     public List<PedidoDTO> getTodosPedidos() {
-        return (List<PedidoDTO>) xd.findAll();
+        List<PedidoEntity> entities = (List<PedidoEntity>) xd.findAll();
+        return entities.stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
     public PedidoDTO insertarPedidos(PedidoDTO pedido) {
-        return xd.save(pedido);
+        PedidoEntity entity = toEntity(pedido);
+        return toDTO(xd.save(entity));
     }
 
     @Override
     public PedidoDTO getProductoById(Long id) {
-        return xd.findById(id.intValue()).orElse(null);
+        Optional<PedidoEntity> entity = xd.findById(id.intValue());
+        return entity.map(this::toDTO).orElse(null);
     }
 
     @Override
     public PedidoDTO actualizarPedido(PedidoDTO pedido) {
-        return xd.save(pedido);
+        PedidoEntity entity = toEntity(pedido);
+        return toDTO(xd.save(entity));
     }
 
     @Override
@@ -41,14 +57,8 @@ public class PedidoService implements IPedidoService{
         try {
             xd.deleteById(id);
             return true;
-            // catch es si algo falla (por ejemplo, no existe el producto), captura la excepcion y devuelve false.
-        } catch (Exception error) { //} catch (Exception error) { //error.printStackTrace(); // Imprime el error en consola //return false; //}
+        } catch (Exception error) {
             return false;
         }
     }
-
-    
-
-
-
 }
