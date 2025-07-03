@@ -1,25 +1,30 @@
 package cl.prueba.uno.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import cl.prueba.empleado.Entity.EmpleadoEntity;
 
 @Entity
-@Table(name = "cafeteria_messiRonaldo")
+@Table(name = "cafeteriaZ")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class CafeteriaEntity {
+
     @Id
     @Column(name = "id_cafeteria")
     private int idCafeteria;
 
     @Column(name = "nombre_local")
     private String nombreLocal;
+
+    // Relación OneToMany con EmpleadoEntity
+    @OneToMany(mappedBy = "cafeteria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference  // Para evitar ciclos infinitos en JSON
+    private List<EmpleadoEntity> empleados;
 }

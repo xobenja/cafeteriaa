@@ -1,6 +1,7 @@
 package cl.prueba.empleado.Service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,21 +30,21 @@ public class EmpleadoService implements IEmpleadoService {
         );
     }
 
-    // Conversión DTO -> Entity
-    private EmpleadoEntity dtoToEntity(EmpleadoDTO dto) {
-        return new EmpleadoEntity(
-            dto.getIdEmpleado(),
-            dto.getNombre(),
-            dto.getApellidoP(),
-            dto.getApellidoM(),
-            dto.getRut(),
-            dto.getTelefono()
-        );
+    // Conversión DTO -> Entity para insertar (sin ID)
+    private EmpleadoEntity dtoToEntityInsert(EmpleadoDTO dto) {
+        EmpleadoEntity entity = new EmpleadoEntity();
+        // No seteamos el ID, ya que es autogenerado en BD
+        entity.setNombre(dto.getNombre());
+        entity.setApellidoP(dto.getApellidoP());
+        entity.setApellidoM(dto.getApellidoM());
+        entity.setRut(dto.getRut());
+        entity.setTelefono(dto.getTelefono());
+        return entity;
     }
 
     @Override
     public EmpleadoDTO insertarEmpleados(EmpleadoDTO dto) {
-        EmpleadoEntity entity = dtoToEntity(dto);
+        EmpleadoEntity entity = dtoToEntityInsert(dto);
         EmpleadoEntity saved = repository.save(entity);
         return entityToDTO(saved);
     }
@@ -55,21 +56,37 @@ public class EmpleadoService implements IEmpleadoService {
     }
 
     @Override
-    public EmpleadoDTO getEmpleadosById(Long id) {
-        EmpleadoEntity entity = repository.findById(id.intValue()).orElse(null);
-        return entity != null ? entityToDTO(entity) : null;
+    public EmpleadoDTO getEmpleadosById(Integer id) {
+        Optional<EmpleadoEntity> entityOpt = repository.findById(id);
+        return entityOpt.map(this::entityToDTO).orElse(null);
     }
 
     @Override
     public EmpleadoDTO actualizarEmpleados(EmpleadoDTO dto) {
-        EmpleadoEntity entity = dtoToEntity(dto);
-        EmpleadoEntity updated = repository.save(entity);
+        if (dto.getIdEmpleado() == null) {
+            throw new IllegalArgumentException("El ID del empleado es obligatorio para actualizar");
+        }
+
+        Optional<EmpleadoEntity> existingOpt = repository.findById(dto.getIdEmpleado());
+        if (existingOpt.isEmpty()) {
+            throw new RuntimeException("Empleado no encontrado con ID: " + dto.getIdEmpleado());
+        }
+
+        EmpleadoEntity entityToUpdate = existingOpt.get();
+        // Actualizamos solo los campos editables
+        entityToUpdate.setNombre(dto.getNombre());
+        entityToUpdate.setApellidoP(dto.getApellidoP());
+        entityToUpdate.setApellidoM(dto.getApellidoM());
+        entityToUpdate.setRut(dto.getRut());
+        entityToUpdate.setTelefono(dto.getTelefono());
+
+        EmpleadoEntity updated = repository.save(entityToUpdate);
         return entityToDTO(updated);
     }
 
     @Override
     public boolean eliminarEmpleados(Integer id) {
-        if(repository.existsById(id)) {
+        if (repository.existsById(id)) {
             repository.deleteById(id);
             return true;
         }

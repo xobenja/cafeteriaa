@@ -1,13 +1,9 @@
 package cl.prueba.empleado.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import cl.prueba.uno.Entity.CafeteriaEntity;
+import lombok.*;
 
 @Entity
 @Table(name = "Empleados_messiRonaldo")
@@ -18,8 +14,10 @@ import lombok.Setter;
 public class EmpleadoEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "empleado_seq")
+    @SequenceGenerator(name = "empleado_seq", sequenceName = "seq_empleados", allocationSize = 1)
     @Column(name = "id_Empleados")
-    private int idEmpleado;
+    private Integer idEmpleado;
 
     @Column(name = "nombre")
     private String nombre;
@@ -35,4 +33,9 @@ public class EmpleadoEntity {
 
     @Column(name = "telefono")
     private String telefono;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_cafeteria")
+    @JsonBackReference  // Para evitar ciclos infinitos en JSON
+    private CafeteriaEntity idCafeteria;
 }

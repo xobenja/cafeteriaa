@@ -27,17 +27,17 @@ public class EmpleadoController {
         return Servicio.getTodosEmpleados();
     }
     @PostMapping//Añadir
-    public EmpleadoDTO inseEmpleadoDTO(@RequestBody EmpleadoDTO empleados){
-        return Servicio.insertarEmpleados(empleados);
+    public EmpleadoDTO inseEmpleadoDTO(@RequestBody EmpleadoDTO empleado){
+        return Servicio.insertarEmpleados(empleado);
     }
     @GetMapping("/{id}")//Mostrar
-    public EmpleadoDTO getById(@PathVariable Long id){
+    public EmpleadoDTO getById(@PathVariable Integer id){
         return Servicio.getEmpleadosById(id);
     }
     @PutMapping("/{id}")//Modificar
-    public EmpleadoDTO deleteById(@PathVariable Integer id,@RequestBody EmpleadoDTO empleados){
-        empleados.setIdEmpleado(id);
-        return Servicio.actualizarEmpleados(empleados);
+    public EmpleadoDTO deleteById(@PathVariable Integer id,@RequestBody EmpleadoDTO empleado){
+        empleado.setIdEmpleado(id);
+        return Servicio.actualizarEmpleados(empleado);
     }
 
     @DeleteMapping("/{id}")//Eliminar
