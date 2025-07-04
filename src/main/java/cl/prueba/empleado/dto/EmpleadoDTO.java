@@ -12,9 +12,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class EmpleadoDTO {
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer idEmpleado;
     private String nombre;
     private String apellidoP;
