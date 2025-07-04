@@ -20,13 +20,5 @@ public class EmpleadoDTO {
     private String telefono;
     private CafeteriaDTO idCafeteria;
 
-   public EmpleadoDTO(Integer idEmpleado, String nombre, String apellidoP, String apellidoM, String rut, String telefono) {
-    this.idEmpleado = idEmpleado;
-    this.nombre = nombre;
-    this.apellidoP = apellidoP;
-    this.apellidoM = apellidoM;
-    this.rut = rut;
-    this.telefono = telefono;
-    this.idCafeteria = idCafeteria;  // siempre null, no la queremos en la respuesta
 }
-}
+
