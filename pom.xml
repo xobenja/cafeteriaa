@@ -7,8 +7,9 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.3</version>
-        <relativePath/> </parent>
+        <version>3.2.5</version> <!-- o la versión que tengas localmente compatible -->
+        <relativePath/> 
+    </parent>
 
     <groupId>cl.prueba</groupId>
     <artifactId>uno</artifactId>
@@ -21,42 +22,78 @@
     </properties>
 
     <dependencies>
+        <!-- Starter web: incluye Tomcat, Jackson, validación y logging -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- JPA (Hibernate) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Lombok: anotaciones como @Slf4j, @Getter, etc. -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
+        <!-- Oracle JDBC -->
         <dependency>
             <groupId>com.oracle.ojdbc</groupId>
             <artifactId>ojdbc8</artifactId>
             <version>19.3.0.0</version>
         </dependency>
 
+        <!-- HATEOAS -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
+        </dependency>
+
+
+        <!-- Jakarta Servlet API (para compilar correctamente los filtros) -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Pruebas unitarias -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Plugin Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!-- Plugin de Lombok para compilar anotaciones -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
 </project>

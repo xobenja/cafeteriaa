@@ -1,7 +1,7 @@
 package cl.prueba.empleado.Entity;
 
 import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+//import com.fasterxml.jackson.annotation.JsonBackReference;
 import cl.prueba.uno.Entity.CafeteriaEntity;
 import lombok.*;
 
