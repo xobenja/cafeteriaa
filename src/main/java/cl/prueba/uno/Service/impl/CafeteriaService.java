@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cl.prueba.empleado.Entity.EmpleadoEntity;
 import cl.prueba.empleado.dto.EmpleadoDTO;
 import cl.prueba.uno.Entity.CafeteriaEntity;
 import cl.prueba.uno.Excepcion.CafeteriaNoEncontrada;
@@ -21,13 +22,31 @@ public class CafeteriaService implements ICafeteriaService {
     @Autowired
     private ICafeteriaRepository west;
 
+    /* 
     @Override
     @Transactional
     public CafeteriaDTO insertarCafeteria(CafeteriaDTO dto) {
-        CafeteriaEntity entity = new CafeteriaEntity(dto.getIdCafeteria(), dto.getNombreLocal(), null);
+        CafeteriaEntity entity = new CafeteriaEntity(dto.getIdCafeteria(), dto.getNombreLocal(), dto.getEmpleados().setNombreLocal()
+        );
         CafeteriaEntity saved = west.save(entity);
         return new CafeteriaDTO(saved.getIdCafeteria(), saved.getNombreLocal(), null);
     }
+
+    */
+
+@Override
+@Transactional
+public CafeteriaDTO insertarCafeteria(CafeteriaDTO dto) {
+    CafeteriaEntity entity = new CafeteriaEntity(dto.getIdCafeteria(), dto.getNombreLocal());
+    entity.setEmpleados(dto.getEmpleado().stream()
+            .map(emp -> new EmpleadoEntity(emp.getIdEmpleado(), emp.getNombre(), emp.getApellidoP(), emp.getApellidoM(), emp.getRut(), emp.getTelefono(), entity))
+            .collect(Collectors.toList()));
+
+    CafeteriaEntity saved = west.save(entity);
+    return new CafeteriaDTO(saved.getIdCafeteria(), saved.getNombreLocal(), saved.getEmpleados().stream()
+            .map(emp -> new EmpleadoDTO(emp.getIdEmpleado(), emp.getNombre(), emp.getApellidoP(), emp.getApellidoM(), emp.getRut(), emp.getTelefono(),  null))
+            .collect(Collectors.toList()));
+}
 
     @Override
     @Transactional

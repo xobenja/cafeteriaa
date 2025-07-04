@@ -1,5 +1,6 @@
 package cl.prueba.uno.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cl.prueba.empleado.dto.EmpleadoDTO;
@@ -22,4 +23,10 @@ public class CafeteriaDTO {
     this.nombreLocal = nombreLocal;
     this.empleado = empleado;
 }
+    public CafeteriaDTO(int idCafeteria, String nombreLocal) {
+    this.idCafeteria = idCafeteria;
+    this.nombreLocal = nombreLocal;
+    this.empleado = new ArrayList<>();  // o new ArrayList<>()
+}
+
 }

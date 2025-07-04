@@ -34,8 +34,9 @@ public class EmpleadoEntity {
     @Column(name = "telefono")
     private String telefono;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cafeteria")
-    @JsonBackReference  // Para evitar ciclos infinitos en JSON
+    @ManyToOne
+    @JoinColumn(name = "idCafeteria")
     private CafeteriaEntity idCafeteria;
+    
+    //@JsonBackReference  // Para evitar ciclos infinitos en JSON
 }

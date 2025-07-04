@@ -27,6 +27,6 @@ public class EmpleadoDTO {
     this.apellidoM = apellidoM;
     this.rut = rut;
     this.telefono = telefono;
-    this.idCafeteria = null;  // siempre null, no la queremos en la respuesta
+    this.idCafeteria = idCafeteria;  // siempre null, no la queremos en la respuesta
 }
 }
