@@ -1,5 +1,7 @@
 package cl.prueba.empleado.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import cl.prueba.uno.dto.CafeteriaDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class EmpleadoDTO {
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer idEmpleado;
     private String nombre;
     private String apellidoP;
