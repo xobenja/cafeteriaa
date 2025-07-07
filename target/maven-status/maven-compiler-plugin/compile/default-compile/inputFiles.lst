@@ -1,26 +1,45 @@
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\cliente\Controller\ClienteController.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\cliente\dto\ClienteDTO.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\cliente\Repository\IClienteRepository.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\cliente\Service\IClienteService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\cliente\Service\impl\ClienteService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\empleado\Controller\EmpleadoController.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\empleado\dto\EmpleadoDTO.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\empleado\Repository\IEmpleadoRepository.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\empleado\Service\IEmpleadoService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\empleado\Service\impl\EmpleadoService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\pago\Controller\PagoController.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\pago\dto\PagoDTO.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\pago\Repository\IPagoRepository.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\pago\Service\impl\PagoService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\pago\Service\IPagoService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\producto\Controller\ProductoController.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\producto\dto\ProductoDTO.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\producto\Repository\IProductoRepository.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\producto\Service\impl\ProductoService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\producto\Service\IProductoService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\uno\Controller\CafeteriaController.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\uno\dto\CafeteriaDTO.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\uno\Repository\ICafeteriaRepository.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\uno\Service\ICafeteriaService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\uno\Service\impl\CafeteriaService.java
-F:\John Lara\Desarrolo fullstack\Test\uno\src\main\java\cl\prueba\UnoApplication.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\empleado\Service\impl\EmpleadoService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\cliente\Controller\ClienteController.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\boleta\dto\BoletaDTO.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\mesasCafeteria\dto\MesaCafeteriaDTO.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\UnoApplication.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\cliente\Entity\ClienteEntity.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\producto\Entity\ProductoEntity.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\pedido\Entity\PedidoEntity.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\boleta\Repository\IBoletaRepository.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\empleado\Entity\EmpleadoEntity.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\cliente\Repository\IClienteRepository.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\boleta\Service\IBoletaService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\empleado\Controller\EmpleadoController.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\producto\Controller\ProductoController.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\mesasCafeteria\Service\impl\MesaCafeteriaService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\mesasCafeteria\Repository\IMesaCafeteriaRepository.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\empleado\Service\IEmpleadoService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\uno\Excepcion\CafeteriaNoEncontrada.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\mesasCafeteria\Service\IMesaCafeteriaService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\producto\Repository\IProductoRepository.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\uno\Repository\ICafeteriaRepository.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\cliente\Service\IClienteService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\uno\Filter\ColoredHttpLoggerFilter.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\pedido\Controller\PedidoController.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\uno\Controller\CafeteriaController.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\boleta\Service\impl\BoletaService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\empleado\dto\EmpleadoDTO.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\pedido\Service\impl\PedidoService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\pedido\dto\PedidoDTO.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\pedido\Service\IPedidoService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\boleta\Controller\BoletaController.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\mesasCafeteria\Controller\MesaCafeteriaController.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\producto\Service\IProductoService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\uno\Service\ICafeteriaService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\boleta\Entity\BoletaEntity.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\uno\dto\CafeteriaDTO.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\empleado\Repository\IEmpleadoRepository.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\producto\dto\ProductoDTO.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\mesasCafeteria\Entity\MesaCafeteriaEntity.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\pedido\Repository\IPedidoRepository.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\cliente\dto\ClienteDTO.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\uno\Service\impl\CafeteriaService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\producto\Service\impl\ProductoService.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\uno\Entity\CafeteriaEntity.java
+C:\Users\benja\Desktop\cafe\cafeteriaa\src\main\java\cl\prueba\cliente\Service\impl\ClienteService.java
