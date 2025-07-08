@@ -20,6 +20,7 @@ public class CafeteriaEntity {
 
     @Id
     @Column(name = "id_cafeteria")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCafeteria;
 
     @Column(name = "nombre_local")
